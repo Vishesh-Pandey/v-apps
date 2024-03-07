@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-text: #161515;
+    --secondary-text: #c7d2fe;
+    --tertiary-text: #4f46e5;
+    --primary-bg: #f1f1f1;
+    --secondary-bg: #d5d3d3;
+    --tertiary-bg: #878787;
+    --primary-button: #6366f1;
+    --secondary-button: #d5d3d3;
+    --tertiary-button: #878787;
+    --warning: #ff0000; /* Example for warning color */
+    --positive: #00ff00; /* Example for positive color */
+    --negative: #0000ff; /* Example for negative color */
+  }
+
+  .dark {
+    --primary-text: #f5f5f5;
+    --secondary-text: rgb(162, 163, 168);
+    --tertiary-text: #e4e4ee;
+    --primary-bg: #0e0e0e;
+    --secondary-bg: #3a3a3a;
+    --tertiary-bg: #878787;
+    --primary-button: #6366f1;
+    --secondary-button: #3a3a3a;
+    --tertiary-button: #878787;
+    --warning: #ff0000; /* Example for warning color */
+    --positive: #00ff00; /* Example for positive color */
+    --negative: #0000ff; /* Example for negative color */
+  }
+}

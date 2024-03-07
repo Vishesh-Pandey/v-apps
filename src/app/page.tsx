@@ -1,29 +1,23 @@
-"use client";
-
-import Navbar from "@/components/navbar/Navbar";
+import Navbar from "@/components/Navbar";
 import axios from "axios";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import ProjectCard from "./ui/ProjectCard";
+import ProjectCard from "../components/ProjectCard";
+import { RecoilRoot } from "recoil";
 
-export default function Home() {
-  const [projects, setprojects] = useState([]);
-  const getRepos = async () => {
-    const response = await axios.get(
-      "https://api.github.com/search/repositories?q=topic:project+user:Vishesh-Pandey"
-    );
-    console.log(response);
-    setprojects(response.data.items);
-  };
-  useEffect(() => {
-    getRepos();
-  }, []);
+const getRepos = async () => {
+  const response = await axios.get(
+    "https://api.github.com/search/repositories?q=topic:v-app+user:Vishesh-Pandey"
+  );
+  return response.data.items;
+};
+
+export default async function Home() {
+  const projects = await getRepos();
 
   return (
     <>
-      <Navbar />
-      <main>
-        {projects.map((project: any, index) => {
+      <main className="">
+        <Navbar />
+        {projects.map((project: any) => {
           return <ProjectCard key={project.id} project={project} />;
         })}
       </main>
